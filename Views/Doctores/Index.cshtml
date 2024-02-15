@@ -1,0 +1,34 @@
+﻿@model List<Doctor>
+
+<h1>Doctores Dependency</h1>
+<p><a asp-controller="Doctores" asp-action="Create">create</a></p>
+<p><a asp-controller="Doctores" asp-action="DoctoresEspecialidad">Doctores especiales</a></p>
+
+<table class="table-bordered">
+
+    <thead>
+
+        <th>Apellido</th>
+    <th>Especialidad</th>
+    <th>Salario</th>
+    <th>Hospital</th>
+    <th></th>
+    <th></th>
+    
+    </thead>
+    <tbody>
+        @foreach(Doctor doc in Model)
+        {
+         <tr>
+            <td>@doc.Apellido</td>
+                <td>@doc.Especialidad</td>
+                <td>@doc.Salario</td>
+                <td>@doc.IdHospital</td>
+                <th><a asp-controller="Doctores" asp-action="Delete" asp-route-iddoctor="@doc.IdDoctor">eliminar</a></th>
+                <th><a asp-controller="Doctores" asp-action="Update" asp-route-iddoctor="@doc.IdDoctor">update</a></th>
+        </tr>
+        }
+       
+
+    </tbody>
+</table>

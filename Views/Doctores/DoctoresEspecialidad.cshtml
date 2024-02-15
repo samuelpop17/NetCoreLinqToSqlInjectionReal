@@ -1,0 +1,38 @@
+﻿@model List<Doctor>
+
+    <h1>Doctores Especialidad ioc</h1>
+<p><a asp-controller="Doctores" asp-action="Index">back index</a></p>
+    <form method="post">
+
+        <label>Especialidad</label>
+        <input type="text" name="especialidad" class="form-control" required />
+        <button>buscar doctores</button>
+
+    </form>
+    <h2>@ViewData["MENSAJE"]</h2>
+    @if (Model != null){
+    <table class="table-bordered">
+
+        <thead>
+
+        <th>Apellido</th>
+        <th>Especialidad</th>
+        <th>Salario</th>
+        <th>Hospital</th>
+
+        </thead>
+        <tbody>
+            @foreach (Doctor doc in Model)
+            {
+                <tr>
+                    <td>@doc.Apellido</td>
+                    <td>@doc.Especialidad</td>
+                    <td>@doc.Salario</td>
+                    <td>@doc.IdHospital</td>
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+    }
